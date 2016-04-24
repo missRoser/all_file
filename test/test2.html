@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test2</title>
+	<style type="text/css">
+	#div1{
+		position: absolute;
+		left: 100px;
+		width: 200px;
+		height: 50px;
+		background: red;
+	}
+	#div2{
+		position: absolute;
+		left: 100px;
+		top: 80px;
+		width: 200px;
+		height: 50px;
+		background: red;
+	}
+	#div3{
+		position: absolute;
+		left: 100px;
+		top: 80px;
+		width: 200px;
+		height: 50px;
+		background: red;
+	}
+	</style>
+	<script type="text/javascript">
+		function getPos(obj){
+			var l=0,t=0;
+
+			while(obj){
+				l+=obj.offsetLeft;
+				t+=obj.offsetTop;
+
+				obj=obj.offsetParent;
+				console.log(obj)
+			}
+
+			return {left:l,top:t}
+
+		}
+		window.onload=function(){
+			var div3=document.getElementById("div3");
+
+			div3.onclick=function(){
+				alert(getPos(div3).top)
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="div1">
+	<div id="div2">
+		<div id="div3"></div>
+	</div>
+</div>
+</body>
+</html>
