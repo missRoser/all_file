@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ajax</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+*{margin: 0;padding: 0;}  
+img{
+  width:200px;
+  height:200px;
+  float:left;
+  margin: 10px;
+}
+#btn{
+
+}
+</style>
+<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+    $("#btn").on('click',function(){
+      var $txt=$("#txt").val();
+      $.ajax({  
+            method:"get",  
+            url:"http://apis.baidu.com/bbtapi/constellation/constellation_query?consName="+$txt+"&type=today",  
+            headers:{"apikey":"293891b34528bc23cace137af1e243f9"}, 
+            dataType:'json',  
+            success:function(data){  
+              console.log(data)
+              $("#box").html(data.summary)
+            },error:function(){
+              alert(122)
+            }
+      }); 
+    })
+		
+	})
+</script>
+</head>
+<body>
+    <div id="box">
+    	
+    </div>
+    <input id="txt" type="text" name="" placeholder="请输入星座">
+    <input id="btn" type="button" name="" value="提交" >
+</body>
+</html>
