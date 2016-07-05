@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>不允许复制</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	window.onload=function(){
+		var oInput=document.getElementsByTagName("input")[0];
+
+		oInput.onkeydown=function(ev){
+			var ev=ev||event;
+			if(ev.ctrlKey&&ev.keyCode==67){
+				return false
+			}
+		}
+	}
+</script>
+</head>
+<body>
+    <input type="text" name="" placeholder="请输入">
+</body>
+</html>

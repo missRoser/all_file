@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>base</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="base.js"></script>
+
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+	var base64 = BASE64.encoder(str);//返回编码后的字符  
+  
+	var unicode= BASE64.decoder("http://m.xxxiao.com/wp-content/uploads/sites/3/2015/06/m.xxxiao.com_b4524af8c20484f4638795ea1515db29-760x500.jpg");//返回会解码后的unicode码数组。  
+	  
+	//可由下面的代码编码为string  
+	  
+	var str = '';  
+	for(var i = 0 , len =  unicode.length ; i < len ;++i){  
+	      str += String.fromCharCode(unicode[i]);  
+	} 
+</script>
+</html>

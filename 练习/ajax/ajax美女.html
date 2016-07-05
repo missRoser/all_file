@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ajax</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+*{margin: 0;padding: 0;}  
+img{
+  width:200px;
+  height:200px;
+  float:left;
+  margin: 10px;
+}
+</style>
+<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({  
+     		method:"get",  
+      		url:"http://apis.baidu.com/txapi/mvtp/meinv?num=10",  
+      		headers:{"apikey":"293891b34528bc23cace137af1e243f9"}, 
+      		dataType:'json',  
+      		success:function(data){  
+      			console.log(data)
+            for(var i=0;i<data.newslist.length;i++){
+                var Img=document.createElement("img");
+                Img.src=data.newslist[i].picUrl;
+                Img.alt=data.newslist[i].title;
+                Img.title=data.newslist[i].title;
+                $("#box").append(Img)
+              }
+            }
+ 		}); 
+	})
+</script>
+</head>
+<body>
+    <div id="box">
+    	
+    </div>
+    <input type="text" name="" value="请输入网址">
+</body>
+</html>

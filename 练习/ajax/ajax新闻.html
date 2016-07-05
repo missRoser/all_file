@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ajax</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+*{margin: 0;padding: 0;}  
+img{
+  width:200px;
+  height:200px;
+  float:left;
+  margin: 10px;
+}
+#btn{
+
+}
+</style>
+<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+      $.ajax({  
+            method:"get",  
+            url:"http://apis.baidu.com/3023/news/channel?id=nba&page=1",  
+            headers:{"apikey":"293891b34528bc23cace137af1e243f9"}, 
+            dataType:'json',  
+            success:function(data){  
+              console.log(data)
+              $("#box").html(data.summary)
+            },error:function(){
+              alert(122)
+            }
+      }); 
+
+		
+	})
+</script>
+</head>
+<body>
+    <div id="box">
+    	
+    </div>
+    <input id="txt" type="text" name="" placeholder="请输入星座">
+    <input id="btn" type="button" name="" value="提交" >
+</body>
+</html>
+<!-- 频道列表：
+
+[
+  {
+    "id": "popular",
+    "channel": "热点"
+  },
+  {
+    "id": "recomm",
+    "channel": "推荐"
+  },
+  {
+    "id": "ent",
+    "channel": "娱乐"
+  },
+  {
+    "id": "society",
+    "channel": "社会"
+  },
+  {
+    "id": "finance",
+    "channel": "财经"
+  },
+  {
+    "id": "sports",
+    "channel": "体育"
+  },
+  {
+    "id": "mil",
+    "channel": "军事"
+  },
+  {
+    "id": "health",
+    "channel": "健康"
+  },
+  {
+    "id": "tech",
+    "channel": "科技"
+  },
+  {
+    "id": "auto",
+    "channel": "汽车"
+  },
+  {
+    "id": "travel",
+    "channel": "旅游"
+  },
+  {
+    "id": "history",
+    "channel": "历史"
+  },
+  {
+    "id": "fashion",
+    "channel": "时尚"
+  },
+  {
+    "id": "couple",
+    "channel": "闺房"
+  },
+  {
+    "id": "game",
+    "channel": "游戏"
+  },
+  {
+    "id": "internet",
+    "channel": "互联网"
+  },
+  {
+    "id": "real",
+    "channel": "干货"
+  },
+  {
+    "id": "world",
+    "channel": "国际"
+  },
+  {
+    "id": "house",
+    "channel": "房产"
+  },
+  {
+    "id": "edu",
+    "channel": "教育"
+  },
+  {
+    "id": "baby",
+    "channel": "育儿"
+  },
+  {
+    "id": "anecdote",
+    "channel": "奇闻"
+  },
+  {
+    "id": "food",
+    "channel": "美食"
+  },
+  {
+    "id": "antique",
+    "channel": "文玩"
+  },
+  {
+    "id": "astro",
+    "channel": "星座"
+  },
+  {
+    "id": "comic",
+    "channel": "动漫"
+  },
+  {
+    "id": "shares",
+    "channel": "股票"
+  },
+  {
+    "id": "nba",
+    "channel": "NBA"
+  },
+  {
+    "id": "home",
+    "channel": "家居"
+  },
+  {
+    "id": "abroad",
+    "channel": "留学"
+  },
+  {
+    "id": "beauty",
+    "channel": "美容"
+  },
+  {
+    "id": "digital",
+    "channel": "数码"
+  }
+] -->

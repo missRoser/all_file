@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>scroll</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{ margin: 0; padding: 0; }
+	#box{ height: 2000px; border: 1px solid #c10000; }	
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var oBox=document.getElementById("box");
+
+		//防抖函数 防抖技术即是可以把多个顺序地调用合并成一次，也就是在一定时间内，规定事件被触发的次数。
+		function debounce(func,timer,immediate){
+			var timeout;
+
+			return function(){
+				clearInterval(timeout);
+
+				timeout=setTimeout(func,timer)
+			}
+		}
+
+		function testFunc(){
+			console.log(document.body.scrollTop)
+		}
+
+		document.addEventListener("scroll",debounce(testFunc,500),false)
+
+		/*document.addEventListener("scroll",testFunc,false)*/
+	}
+</script>
+</head>
+<body>
+    <div id="box">
+    	
+    </div>
+</body>
+</html>
