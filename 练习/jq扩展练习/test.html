@@ -16,13 +16,14 @@
 	}
 	.accordion dt{
 		height: 38px;
+		padding-left: 20px;
 		line-height: 38px;
 		font-weight: 600;
 		background-color: #D1D1D1;
 	}
 	.accordion dd{
 		height: 38px;
-		padding-left: 50px;
+		padding: 8px 0 8px 50px;
 		line-height: 38px;
 		background-color: #f1f1f1;
 	}
@@ -33,14 +34,26 @@
 	(function($){
 		var aa=2;
 		$.fn.test=function(){
-			var aa=1;
-			return this.each(function(){
 
-			})
+			return this.each(function(i,v){
+				var dtL=$(this).find('dt');
+				dtL.click(ashow);
+				dtL.each(ahide);
+			});
+
+			function ashow(){
+				$(this).next("dd").fadeIn();
+				$(this).next("dd").siblings("dd").fadeOut();
+				return false
+			}
+
+			function ahide(){
+				$(this).next("dd").siblings("dd").fadeOut();
+			}
 		}
 	})(jQuery)
 	$(function(){
-		$(document).test()
+		$("dl").test()
 	})
 </script>
 </head>
