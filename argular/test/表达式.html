@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>表达式</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="../argular.js"></script>
+<!--
+	AngularJS 表达式写在双大括号内：{{ expression }}。
+	AngularJS 表达式把数据绑定到 HTML，这与 ng-bind 指令有异曲同工之妙。
+	AngularJS 将在表达式书写的位置"输出"数据。
+
+	使用 ng-init 不是很常见
+
+	AngularJS 表达式 与 JavaScript 表达式
+	类似于 JavaScript 表达式，AngularJS 表达式可以包含字母，操作符，变量。
+	与 JavaScript 表达式不同，AngularJS 表达式可以写在 HTML 中。
+	与 JavaScript 表达式不同，AngularJS 表达式不支持条件判断，循环及异常。
+	与 JavaScript 表达式不同，AngularJS 表达式支持过滤器。
+-->
+</head>
+<body ng-app="">
+    <div>数字表达式{{5+5}}</div>
+    <div ng-init="num=5;str=20">{{num+str}}</div>
+	
+	<div ng-init="str1='new1';str2='new2'">字符串表达式{{str1+""+str2}}</div>
+	<div ng-init="obj={aa:1,bb:2}">对象:{{obj.aa}}</div>
+	<!-- <div ng-init="obj={aa:1,bb:2}">对象<span ng-bind="obj.aa"></span></div> -->
+
+	<div ng-init="arr=[23,12,45,565,'aa']">数组:{{arr[arr.length-1]}}</div>
+</body>
+</html>
