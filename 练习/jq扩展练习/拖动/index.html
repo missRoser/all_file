@@ -24,9 +24,11 @@
 <script type="text/javascript" src="../jq2.1.1.js"></script>
 <script type="text/javascript">
 	$(function(){
+		
 		$("#box").on("mousedown",function(ev){
 			var disX=ev.clientX-$(this).offset().left;
 			var disY=ev.clientY-$(this).offset().top;
+			var that=$(this);
 
 			$(document).on("mousemove",function(ev){
 				var disXx=ev.clientX-disX;
@@ -34,27 +36,33 @@
 
 				if(disXx<=0)
 					disXx=0;
-				else if(disXx>=$(window).width()-$("#box").width())
-					disXx=$(window).width()-$("#box").width();
+				else if(disXx>=$(window).width()-that.width())
+					disXx=$(window).width()-that.width();
 
 				if(disYx<=0)
 					disYx=0;
-				else if(disYx>=$(window).height()-$("#box").height())
-					disYx=$(window).height()-$("#box").height();
-				
+				else if(disYx>=$(window).height()-that.height())
+					disYx=$(window).height()-that.height();
 				
 
-				$("#box").css({"left":disXx,"top":disYx})
+				that.animate({
+					left: disXx,
+					top: disYx},
+					0);
 			})
 
 			$(document).on("mouseup",function(){
-				$(document).off("mousemove mouseup",null)
+				$(document).off("mousemove mouseup",null);
+				that.css("background","rgb("+rdnC()+","+rdnC()+","+rdnC()+")")
 			})
 			return false;
 		});
-
-		
 	})
+
+	function rdnC(){
+		return parseInt(Math.random()*256);
+	}
+
 </script>
 </head>
 <body>
