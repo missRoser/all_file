@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>angular动画</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.a1.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: pink;
+  top:-200px;
+  left: 200px;
+}
+.a2.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: yellow;
+  top:-200px;
+  left: 200px;
+}
+</style>
+<script type="text/javascript" src="../argular.js"></script>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+<script type="text/javascript">
+	angular.module("myApp",['ngAnimate']).controller("myC",function($scope){
+		$scope.myCheck=true;
+	})
+</script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myC">
+    	<h1>隐藏 DIV: <input type="checkbox" ng-model="myCheck"></h1>
+		<div class="a1" ng-hide="myCheck"></div>
+
+		<div class="a2" ng-hide="!myCheck"></div>
+    </div>
+</body>
+</html>
