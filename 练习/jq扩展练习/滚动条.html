@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#box{
+		position: relative;
+		width: 240px;
+		height: 300px;
+		padding: 10px 20px;
+		border: 1px solid #4C5EFF;
+		margin: 100px auto;
+		overflow: hidden;
+	}
+    #txt{ width:240px; height:300px; position:relative; overflow:hidden; }
+    #con{ position:absolute; left:0; top:0; }
+	#side{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 10px;
+		height: 100%;
+		border-radius: 6px;
+		background-color: #F1FF35;
+	}
+	#side_bar{
+        position: absolute;
+        right: 0;
+        top: 0;
+		width: 100%;
+		height: 20px;
+		border-radius: 6px;
+		background-color: #B7FF73;
+	}
+</style>
+<script type="text/javascript" src="jq2.1.1.js"></script>
+
+<script type="text/javascript">
+	function addEvent(obj,oEv,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(oEv,fn,false)
+        }else if(obj.addachEvent){
+            obj.addachEvent('on'+oEv,fn)
+        }
+    }
+
+    function addWheel(obj,fn){
+        function fnDir(ev){
+            var ev=ev||event;
+
+            var dir=ev.wheelDelta?ev.wheelDelta<0:ev.detail>0;
+
+            fn&&fn(dir);
+
+            ev.preventDefault&&ev.preventDefault();
+
+            return false;
+        }
+
+        if(window.navigator.userAgent.indexOf('Firefox')!=-1){
+            addEvent(obj,'DOMMouseScroll',fnDir);
+        }else{
+            addEvent(obj,'mousewheel',fnDir);
+        }
+    }
+
+    window.onload=function(){
+        var oBox=document.getElementById("box"),
+            oTxt=document.getElementById("txt"),
+            oCon=document.getElementById("con"),
+            oSide=document.getElementById("side"),
+            oSideB=document.getElementById("side_bar");
+
+        oSideB.onmousedown=function(ev){
+            var ev=ev||event,
+                disY=ev.clientY-this.offsetTop,
+                that=this;
+
+            document.onmousemove=function(ev){
+                var ev=ev||event,
+                    t=ev.clientY-disY;
+
+                change(t)
+            }
+
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+
+                that.releaseCapture&&that.releaseCapture();
+            }
+            that.setCapture&&that.setCapture();
+            return false;
+        }
+
+        function change(t){
+            if(t<0){
+                t=0;
+            }else if(t>(oSide.offsetHeight-oSideB.offsetHeight)){
+                console.log(t);
+                t=oSide.offsetHeight-oSideB.offsetHeight;
+            }
+
+            var scale=t/(oSide.offsetHeight-oSideB.offsetHeight)*(oTxt.offsetHeight-oCon.offsetHeight);
+
+            oCon.style.top=scale+"px";
+            oSideB.style.top=-scale+"px"
+        }
+
+        addWheel(oBox,function(dir){
+            var t=oSideB.offsetTop;
+            console.log(dir)
+            if(dir){
+                t+=10;
+            }else{
+                t-=10;
+            }
+
+            change(t)
+        })
+
+        
+    }
+</script>
+</head>
+<body>
+    <div id="box">
+    	<div id="txt">
+    		<div id="con">
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+    			
+    			<p>伤情最是晚凉天,憔悴斯人不堪怜</p>
+    			<p>邀酒摧肠三杯醉,寻香惊梦五更寒</p>
+    			<p>钗头凤斜卿有泪,荼蘼花了我无缘</p>
+    			<p>小楼寂寞新雨月,也难如钩也难圆</p>
+    		</div>
+    	</div>
+    	<div id="side">
+    		<div id="side_bar">
+    			
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

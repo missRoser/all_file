@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>css实现tab切换</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+/*:target 突出显示当前的 HTML 锚： */
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		width: 600px;
+		overflow: hidden;
+	    padding: 10px;
+	    border: 1px solid #ddd;
+		box-shadow: 0 0 6px #ccc;
+		margin: 100px auto 0;
+	}
+	.box ul{
+		position: relative;
+	    overflow: hidden;
+		height: 320px;
+	    list-style: none;
+	}
+	.box .tit {
+	    position: absolute;
+	    top: 1px;
+	    right: 0;
+	    width: 100px;
+	    height: 36px;
+	    margin: 0;
+	    padding: 0;
+	    border-bottom: 1px solid #ddd;
+	    font: normal 14px/2.6 georgia,simsun,sans-serif;
+	}
+	.box .tit a {
+	    display: block;
+	    overflow: hidden;
+	    padding: 0 8px;
+	    height: 100%;
+	    color: #333;
+	    text-decoration: none;
+	    -moz-transition: all .5s ease-in;
+	    -webkit-transition: all .5s ease-in;
+	    -o-transition: all .5s ease-in;
+	    -ms-transition: all .5s ease-in;
+	    transition: all .5s ease-in;
+	}
+	.box .panel{    
+		position: absolute;
+	    z-index: 1;
+	    opacity: 0;
+	    top: 0;
+	    left: 0;
+	    height: 100%;
+	    -moz-transition: all .5s ease-in-out;
+	    -webkit-transition: all .5s ease-in-out;
+	    -o-transition: all .5s ease-in-out;
+	    -ms-transition: all .5s ease-in-out;
+	    transition: all .5s ease-in-out;
+	}
+	.box #no2 .tit{
+		top:38px;
+	}
+	.box #no3 .tit{
+		top:75px;
+	}
+	.box #no4 .tit{
+		top:112px;
+	}
+	.box #no5 .tit{
+		top:149px;
+	}
+	.box #no6 .tit{
+		top:186px;
+	}
+	.box .tit a:hover{
+		background-color:#ddd;
+		color:#555;
+	}
+	.box .focus{
+		opacity:1;
+	}
+	.box li:target .panel{
+		z-index:2;
+		opacity:1;
+	}
+	.box li:target .tit a{
+		background-color:#aaa;
+		color:#fff;
+	}
+	.box li:target .tit a:before{
+		position:absolute;
+	    top:50%;
+		left:-7px;
+		overflow:hidden;
+		height:0;
+		content:"";
+		margin-top:-5px;
+		border-bottom:5px solid transparent;
+	    border-right:5px solid #9A9A9A;
+	    border-top:5px solid transparent;
+	}
+	.box img{
+		width:480px;
+		border:0 none;
+	}
+</style>
+</head>
+<body>
+    <div class="box">
+    	<ul>
+    		<li id="no1">
+    			<h2 class="tit"><a href="#no1">美女111</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_1.jpg" alt=""></a>
+    			</div>
+    		</li>
+    		<li id="no2">
+    			<h2 class="tit"><a href="#no2">美女222</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_2.jpg" alt=""></a>
+    			</div>
+    		</li>
+    		<li id="no3">
+    			<h2 class="tit"><a href="#no3">美女333</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_3.jpg" alt=""></a>
+    			</div>
+    		</li>
+    		<li id="no4">
+    			<h2 class="tit"><a href="#no4">美女444</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_4.jpg" alt=""></a>
+    			</div>
+    		</li>
+    		<li id="no5">
+    			<h2 class="tit"><a href="#no5">美女555</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_5.jpg" alt=""></a>
+    			</div>
+    		</li>
+    		<li id="no6">
+    			<h2 class="tit"><a href="#no6">美女666</a></h2>
+    			<div class="panel">
+    				<a href="#2"><img src="p_600x400_6.jpg" alt=""></a>
+    			</div>
+    		</li>
+    	</ul>
+    </div>
+</body>
+</html>
