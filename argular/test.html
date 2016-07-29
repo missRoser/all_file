@@ -10,21 +10,72 @@
 		}
 		::selection{ background:#c10000; color:#fff; }
         ::-moz-selection{ background:#c10000; color:#fff; }
-        ::-webkit-selection { background:#c10000; color:#fff;}	
+        ::-webkit-selection { background:#c10000; color:#fff;}
+
+        /*list 列表加载样式*/
+        .list{
+        	border: 1px solid #666;
+        }
+        .list li{
+        	border-bottom: 1px dotted #666;
+        }
+        .list li:last{
+        	border: none;
+        }
+		.spinner {
+			width: 60px;
+			height: 60px;
+			background-color: #67CF22;
+			margin: 20px 100px;
+			-webkit-animation: rotateplane 1.2s infinite ease-in-out;
+			animation: rotateplane 1.2s infinite ease-in-out;
+		}
+
+		@-webkit-keyframes rotateplane {
+			0% {
+				-webkit-transform: perspective(120px)
+			}
+
+			50% {
+				-webkit-transform: perspective(120px) rotateY(180deg)
+			}
+
+			100% {
+				-webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg)
+			}
+
+		}
+
+		@keyframes rotateplane {
+			0% {
+				transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+				-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+			}
+
+			50% {
+				transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+				-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+			}
+
+			100% {
+				transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+				-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+			}
+
+		}
 	</style>
 	<script src="argular.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/localStore.js"></script>
 </head>
 <body ng-app="myApp">
-	<div ng-controller="myC">
-		<input type="text" ng-model="person.name" placeholder="Enter your name" />
-  		<h5>Hello {{ person.name }}</h5>
+	<div ng-controller="myC" id="myC">
 	 	<span>{{sta}}</span>{{clock}}
-	 	<div ng-hide="wait">请稍后</div>
-		<ul class="">
-		   <li ng-repeat="program in programs">
-		     <span play='play(program)' ng-model="program"></span>
-		   </li> 
+	 	<div class="spinner" ng-hide="wait"></div>
+		<ul class="list">
+		   	<li ng-repeat="program in programs">
+		     	<span ng-click='player(program)'>{{program.title.$text}}</span>
+		   	</li>
 		</ul>
 
 	 	<button ng-click="play()" class="button" ng-show="!playing">Play</button>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>模板页面</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	::selection{ background:#FFF; color:#333; }
+    ::-moz-selection{ background:#FFF; color:#333; }
+    ::-webkit-selection { background:#FFF; color:#333;}
+    html,body{
+    	width: 100%;
+    	height: 100%;
+    }
+    body{
+    	position: relative;
+	    padding: 15px;
+	    box-sizing: border-box;
+	    background-image: linear-gradient(#c3c3c3, #212121);
+	    background-size: auto 200%;
+	    background-position: 0 100%;
+	    transition: background-position 1s;
+    }
+    body:hover {
+    	background-position: 0 0;
+	}
+	.musicBox{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 600px;
+		height: 400px;
+		padding: 15px;
+		border: 1px solid #666;
+		box-sizing: border-box;
+		margin: -200px 0 0 -300px;
+		background-image: url('img/p_600x400_3.jpg');
+		background-size: 100% 100%;
+	}
+	#animation { -webkit-animation: flipOutX 1s .2s ease both; -moz-animation: flipOutX 1s .2s ease both; }
+	@-webkit-keyframes flipOutX {
+		0% { -webkit-transform: perspective(400px) rotateX(0deg); opacity: 1 }
+		100% { -webkit-transform: perspective(400px) rotateX(90deg); opacity: 0 }
+	}
+	@-moz-keyframes flipOutX {
+		0% { -moz-transform: perspective(400px) rotateX(0deg); opacity: 1 }
+		100% { -moz-transform: perspective(400px) rotateX(90deg); opacity: 0 }
+	}
+</style>	
+</head>
+<body>
+    <div class="musicBox">
+    	
+    </div>
+</body>
+</html>
