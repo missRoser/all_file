@@ -6,12 +6,38 @@
 <title>index</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<script type="text/javascript" src="argular.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		width: 200px;
+		height: 200px;
+		margin: 10px;
+		color: #fff;
+		background-color: #4D2BFF;
+	}
+</style>
+<script type="text/javascript" src="../argular.js"></script>
+<script type="text/javascript">
+	angular.module("myApp",[]).controller("MyController",['$scope', '$parse',function(a,b){
+		
+		a.$watch('expr', function(newVal, oldVal, scope) {
+		if (newVal !== oldVal) {
+			// 用该表达式设置parseFun
+			var parseFun = b(newVal);
+			// 获取经过解析后表达式的值
+			a.parsedValue = parseFun(scope);
+		}
+		});
+	}])
+</script>
 </head>
-<body>
-    <div ng-model>
-    	
-    </div>
+<body ng-app="myApp">
+	<div ng-controller="MyController">
+		<input ng-model="expr" type="text" placeholder="Enter an expression" />
+		<h2>{{ parseValue }}</h2>
+	</div> 
 </body>
 </html>

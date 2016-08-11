@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jq扩展基础版</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		width: 200px;
+		height: 200px;
+		margin: 0 auto;
+		background-color: #FD19FF;
+	}
+</style>
+<script type="text/javascript" src="jq2.1.1.js"></script>
+<script type="text/javascript">
+	/*
+		@一些解释:
+			jq用$操作页面元素,返回的是一个jq对象
+		然后就可以使用jq定义的一些DOM操作方法
+
+		原理就是jQuery.fn=jQuery.prototype
+		jQuery的一些方法都是定义在jQuery.fn上的
+	*/
+
+	//其它库也会有$操作符,为了防止被影响,使用自执行函数
+
+	//http://www.jianshu.com/p/518d424d4994
+	(function($){
+		$.fn.extend({
+			changeColor:function(cStr){
+				this.css('backgroundColor',cStr);
+				//返回当前操作的jq对象,可以继续链式操作
+				return this;
+			},
+			changeW:function(w){
+				this.css('width',w);
+				return this;
+			}
+		})
+	})(jQuery)
+
+	//$.fn.extend    $.fn.name定义插件的两种方法
+	//$.extend    合并参数	设置默认值
+	
+	$(function(){
+		
+		$("div").changeColor("#FF5353").changeW("1000px")
+	})
+</script>
+</head>
+<body>
+    <div>
+    	
+    </div>
+</body>
+</html>

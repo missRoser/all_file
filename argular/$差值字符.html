@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="angular.js"></script>
+    <script>
+    	//$interpolate接收三个参数
+      /*
+        text（字符串）：一个包含字符插值标记的字符串。
+      
+        mustHaveExpression（布尔型）：如果将这个参数设为true，当传入的字符串中不含有表达式时会返回null。
+       
+        trustedContext（字符串）：AngularJS会对已经进行过字符插值操作的字符串通过$sec.getTrusted()方法进行严格的上下文转义。
+      */
+      var app=angular.module("myApp",[]);
+      app.filter("mySS",function(){
+        return function(txt){
+          console.log(txt);
+          if(txt){
+            return txt[0].toUpperCase()+txt.slice(1)
+          }
+        }
+      })
+
+      app.controller("Cntl2",['$scope',function(scope){
+        
+      }])
+
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="Cntl2">
+        <input ng-model="name" type="" name="">
+        {{name|mySS}}
+    </div>
+  </body>
+</html>
