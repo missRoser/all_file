@@ -1,0 +1,42 @@
+ng内置指令
+	: ng-href；
+	  ng-src；
+	  ng-disabled；
+	  ng-checked；
+	  ng-readonly；
+	  ng-selected；
+	  ng-class；
+	  ng-style
+	
+	布尔属性  
+	  ng-disabled	是否能输入
+	  ng-readonly	是否能输入
+	  ng-checked	否出现checked属性
+	  ng-selected	是否出现option标签的selected属性
+	
+	类布尔属性
+	  ng-href
+	  ng-src		在ng-src对应的表达式生效之前不要加载图像
+	
+	在指令中使用子作用域
+	  ng-app		任何具有ng-app属性的DOM元素将被标记为$rootScope的起始点。	通过run方法来访问$rootScope
+	  ng-controller	创建一个子作用域避免将所有操作都定义在$rootscope
+	  ng-include
+	  ng-switch
+	  ng-view
+	  ng-if
+	  ng-repeat
+	  ng-init
+	  {{ }}
+	  ng-bind
+	  ng-cloak
+	  ng-bind-template
+	  ng-model
+	  ng-show/ng-hide
+	  ng-change
+	  ng-form
+	  ng-click
+	  ng-select
+	  ng-submit
+	  ng-class
+	  ng-attr-(suffix)

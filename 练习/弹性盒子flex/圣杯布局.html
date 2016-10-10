@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>圣杯布局</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box {
+	  display: flex;
+	  min-height: 100vh;
+	  flex-direction: column;
+	  flex-wrap: wrap;
+	  background-color: #f1f1f1;
+	}
+	header,footer{
+		flex: 1;
+		background-color: #2E2AFF;
+	}
+	section{
+		display: flex;
+  		flex: 10;
+	}
+	section .left{
+		flex: 0 0 12em;
+	}
+	section .mid{
+		flex:1;
+		border: 1px solid #000;
+	}
+	section .right{
+		flex: 0 0 12em;
+	}
+	@media (max-width: 768px) {
+		section{
+			flex-direction: column;
+		}
+
+		section .right,section .left{
+			flex: 0 0 6em;
+		}
+	}
+</style>
+</head>
+<body class="box">
+	<header>
+		header
+	</header><!-- /header -->
+	
+	<section>
+		<div class="left">left</div>
+		<div class="mid">center</div>
+		<div class="right">right</div>
+	</section>
+
+	<footer>
+		footer
+	</footer>
+</body>
+</html>

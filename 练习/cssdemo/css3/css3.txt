@@ -1,0 +1,211 @@
+CSS3
+	圆角
+		border-radius:px||%;
+		border-radius: 左上、右上、右下、左下;
+		border-radius: 左上、右下  右上、左下;
+		border-radius: 左上  右上、左下  右下;
+		border-radius: 左上  右上  右下  左下;
+
+	运动
+		transition:运动时间 样式选项(all/单个样式) 运动类型;
+
+	
+	css前缀 		处理浏览器兼容
+		-webkit- 		Chrome Safari Opear
+		-moz- 			Firefox
+		-ms- 			IE
+		-o- 			老版本Opear
+		不加前缀
+		
+		-webkit-transition:1s all ease;
+		-moz-transition:1s all ease;
+		-ms-transition:1s all ease;
+		-o-transition:1s all ease;
+		transition:1s all ease;
+
+		如果用js应该怎么玩：
+		-webkit-transition 		WebkitTransition
+		-moz-transition 		MozTransition
+		-ms-transition 			msTransition
+		-o-transition 			OTransition
+		transition 				transition
+=========================================================
+
+========================================================
+	transform
+		旋转
+			rotate(deg) 		Z轴旋转
+				正数 		顺时针
+				负数 		逆时针
+
+			rotateX(deg) 			X轴旋转
+			rotateY(deg) 			Y轴旋转
+
+
+		偏移
+			translate(x,y);
+		缩放
+			scale(x,y);
+				默认是1
+		扭曲(拉伸)
+			skew(deg,deg);
+
+		尽量使用transform
+			transform不会改变盒子模型
+
+		改变原点
+			transform-origin:单词/px;
+
+		注意：
+			a).不能操作行元素
+			b).可以一起操作 	以空格相隔
+			c).有执行顺序
+				后写的先执行
+				先写的后执行
+
+		透视
+			perspective(范围px);
+				800-1200
+
+		操作transform的时候，要给初始值
+		
+==========================================================
+	高级动画
+		animation
+			定义
+				@keyframes 名字{
+					from{} 		//可以省略
+					to{}
+				}
+				@keyframes 名字{
+					%{}
+				}
+			调用
+				-webkit-animation-name 				名字
+				-webkit-animation-duration 			时间
+				-webkit-animation-timing-function 	运动类型
+				-webkit-animation-iteration-count 	重复次数
+									迭代
+										infinite 	
+
+无限
+				-webkit-animation-direction 		方向
+ 									normal 	默认
+ 									alternate 	交
+
+替
+ 				-webkit-animation-delay 			延迟
+ 				-webkit-animation-play-state 		播放状态
+ 									paused 		暂
+
+停
+ 									running 	播
+
+放
+
+ 		-webkit-animation: 往上写;
+ 			注意：只有运动时间和延迟有顺序
+======================================================
+		自定义属性
+			<input type="button" value="aaa" index="1" />
+			向后兼容
+
+				data-属性
+
+				obj.dataset.属性
+
+				遍历自定义属性
+				
+====================================================
+	阴影
+		box-shadow: x偏移 y偏移 blur color;
+		可选 []
+		box-shadow: [inset] x y blur [扩展] color;
+
+		可以叠加
+		box-shadow: x y blur color,x y blur color...;
+
+		text-shadow 	文本阴影
+		text-shadow: x y blur color;
+===========================================================
+	颜色
+		单词
+		#十六进制
+		rgb(red,green,blue);
+
+		rgba(red,green,blue,alpha);
+
+	渐变色
+		线性渐变
+			background:-webkit-linear-gradient(color,color,color...);
+			background:-webkit-linear-gradient([方向],color,color,color...);
+				方向：
+					单词(可以组合)
+					角度 	deg （度）
+						0度是从左到右的
+						逆时针旋转
+
+			transition操作不了渐变
+
+			渐变色可以设置范围
+				-webkit-linear-gradient(color start,color end,color 
+
+start,color end...);
+
+			重复渐变
+				-webkit-repeating-linear-gradient();
+
+		径向渐变
+			-webkit-radial-gradient(color,color,color);
+			-webkit-radial-gradient([方向],color,color,color);
+				方向
+					单词
+					像素
+
+			渐变范围
+				-webkit-radial-gradient(color start,color end,color 
+
+start,color end...);
+
+			重复渐变
+				-webkit-repeating-radial-gradient(...);
+======================================================
+	文字切片
+		-webkit-background-clip:text;
+
+		步骤：
+			1.设置背景颜色
+			2.设置
+				-webkit-background-clip:text;
+			3.把字体变成透明
+				color:rgba(0,0,0,0);
+
+		注意：设置切片必须在背景颜色之后
+
+	图片蒙版
+		只要有颜色就能透出来
+			png 	gif
+		-webkit-mask:url() no-repeat x y;
+
+		-webkit-mask:渐变颜色;
+
+	倒影效果
+
+	背景图大小
+		background-size
+		
+	3D图片切换
+		z轴偏移
+		translateZ(px);
+
+		开启3D 		给父级加
+		-webkit-transform-style:preserve-3d;
+			注意：只有改变Z轴偏移的时候才需要加
+
+		透视 		给父级加
+		1.父级需要改变
+			-webkit-transform:perspective(800px);
+		2.父级不需要改变
+			perspective:800px;
+
+=============================================================

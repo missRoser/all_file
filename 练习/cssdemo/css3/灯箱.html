@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>灯箱</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		position: relative;
+		width: 200px;
+		height: 500px;
+		border: 1px solid #2315FF;
+		margin: 100px auto;
+		overflow: hidden;
+	}
+	.box .con{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 500px;
+		height: 100%;
+		background: -webkit-repeating-linear-gradient(-45deg,red 0,red 20px,#fff 20px,#fff 40px,blue 40px, blue 60px, #fff 60px, #fff 80px);
+	}
+</style>
+<script>
+	window.onload=function(){
+		var oCon = document.querySelector('.con');
+		var l = 0;
+		setInterval(function(){
+			l-=2;
+			if(l<=-120){
+				l = -7;
+			}
+			oCon.style.left = l+'px';
+		},30);
+	};
+</script>
+</head>
+<body>
+    <div class="box">
+    	<div class="con"></div>
+    </div>
+</body>
+</html>

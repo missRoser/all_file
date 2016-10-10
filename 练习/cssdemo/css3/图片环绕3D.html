@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>图片环绕</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		position: relative;
+		width: 133px;
+		height: 200px;
+		margin: 200px auto;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: perspective(800px) rotateY(0deg);
+		-webkit-transition: 1s all ease;
+	}
+	li{
+		list-style: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		box-shadow: 0 0 10px #fff;
+		-webkit-transform: rotateY(0deg) translateZ(0px);
+	}
+ul:active{
+	-webkit-transform: perspective(800px) rotateY(360deg);
+}
+</style>	
+<script>
+	window.onload=function(){
+		var oBox=document.querySelectorAll("ul li")
+
+		for(var i=0;i<oBox.length;i++){
+
+			//初始加载动画
+			//oBox[i].style.WebkitTransition = '1s all ease';
+
+			//延迟初始加载动画
+			oBox[i].style.WebkitTransition = '1s all ease '+(11-i)*100+'ms';
+
+			oBox[i].style.WebkitTransform=" rotateY("+360/11*i+"deg) translateZ(350px)";
+
+			//灯笼旋转
+			//oBox[i].style.WebkitTransform=" translateZ(350px) rotateY("+360/11*i+"deg)";
+		}
+	}
+</script>
+</head>
+<body style="background-color: #000; overflow: hidden;">
+    <ul>
+    	<li><img src="img2/1.jpg" alt=""></li>
+    	<li><img src="img2/2.jpg" alt=""></li>
+    	<li><img src="img2/3.jpg" alt=""></li>
+    	<li><img src="img2/4.jpg" alt=""></li>
+    	<li><img src="img2/5.jpg" alt=""></li>
+    	<li><img src="img2/6.jpg" alt=""></li>
+    	<li><img src="img2/7.jpg" alt=""></li>
+    	<li><img src="img2/8.jpg" alt=""></li>
+    	<li><img src="img2/9.jpg" alt=""></li>
+    	<li><img src="img2/10.jpg" alt=""></li>
+    	<li><img src="img2/11.jpg" alt=""></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>模板页面</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		display: flex;/* 
+		justify-content: space-between; */
+		/* justify-content: space-between;
+		flex-direction: column-reverse;
+		align-items: flex-end; */
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		width: 60px;
+		height: 60px;
+		border: 1px solid #000;
+		margin: 100px auto;
+	}
+	.item{
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color:#000;
+	}
+	.item1{
+		align-self: center;
+	}
+	.item2{
+		align-self: flex-end;
+	}
+</style>
+</head>
+<body>
+    <div class="box">
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item"></span>
+	  <span class="item item2"></span>
+	</div>
+</body>
+</html>
